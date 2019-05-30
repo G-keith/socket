@@ -41,10 +41,6 @@ public class Server {
             System.out.println("新客户端连接信息："+socket.getInetAddress()+":"+socket.getPort());
 
             try{
-                //键盘输入
-                InputStream in=System.in;
-                BufferedReader input=new BufferedReader(new InputStreamReader(in));
-
                 //得到打印流.服务器回送数据
                 PrintStream printStream=new PrintStream(socket.getOutputStream());
                 //输入流，用来接收数据
@@ -57,8 +53,7 @@ public class Server {
                         printStream.println("bye");
                     }else{
                         System.out.println(str);
-                       String s= input.readLine();
-                        printStream.println(s);
+                        printStream.println(str.length());
                     }
                 }
                 printStream.close();
